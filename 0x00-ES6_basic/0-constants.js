@@ -1,8 +1,3 @@
-/**
- * File: 0-constant.js
- * Author: Oluwatobiloba Light
- */
-
 export function taskFirst () {
 	const task = 'I prefer const when I can.';
 	return task;
