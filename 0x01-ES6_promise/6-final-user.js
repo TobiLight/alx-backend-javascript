@@ -15,5 +15,9 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
         status: photoData.status,
         value: photoData.status === 'fulfilled' ? photoData.value : photoData.reason,
       },
-    ]);
+    ])
+    .catch((error) => {
+      console.log(error);
+      return [{ status: 'rejected', value: error }];
+    });
 }
