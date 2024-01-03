@@ -1,3 +1,3 @@
 import handleProfileSignup from '../6-final-user';
 
-console.log(handleProfileSignup("Bob", "Dylan", "bob_dylan.jpg").then(resp => console.log(resp)));
+console.log(handleProfileSignup("Bob", "Dylan", "bob_dylan.jpg"));
