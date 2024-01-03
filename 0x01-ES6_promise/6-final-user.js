@@ -9,11 +9,11 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     .then(([userData, photoData]) => [
       {
         status: userData.status,
-        value: userData,
+        value: userData.status === 'fulfilled' ? userData.value : userData.reason,
       },
       {
         status: photoData.status,
-        value: photoData,
+        value: photoData.status === 'fulfilled' ? photoData.value : photoData.reason,
       },
     ]);
 }
