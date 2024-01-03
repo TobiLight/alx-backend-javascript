@@ -7,4 +7,5 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
 
   return Promise.all([user, photo])
     .then(([userData, photoData]) => [...userData, ...photoData])
+    .catch(() => { });
 }
