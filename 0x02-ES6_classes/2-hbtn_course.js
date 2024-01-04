@@ -10,7 +10,7 @@ export default class HolbertonCourse {
   }
 
   set name(value) {
-    this._name = this._validateName(value);
+    this._validateName(value);
   }
 
   get length() {
@@ -18,7 +18,7 @@ export default class HolbertonCourse {
   }
 
   set length(value) {
-    this._length = this._validateLength(value);
+    this._validateLength(value);
   }
 
   get students() {
@@ -26,26 +26,29 @@ export default class HolbertonCourse {
   }
 
   set students(studentsArr) {
-    this._students = this._validateStudents(studentsArr);
+    this._validateStudents(studentsArr);
   }
 
   _validateName(name) {
     if (typeof name === 'string') {
-      return name;
+      this._name = name;
+      return this._name;
     }
     throw new TypeError('Name must be a string');
   }
 
   _validateLength(length) {
     if (typeof length === 'number') {
-      return length;
+      this._length = length;
+      return this._length;
     }
     throw new TypeError('Length must be a number');
   }
 
   _validateStudents(studentsArr) {
     if (Array.isArray(studentsArr) && studentsArr.every((student) => typeof student === 'string')) {
-      return studentsArr;
+      this._students = studentsArr;
+      return this._students;
     }
     throw new TypeError('Students must be an array');
   }
