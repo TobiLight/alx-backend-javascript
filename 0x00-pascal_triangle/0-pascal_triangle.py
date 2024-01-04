@@ -11,8 +11,8 @@ def pascal_triangle(n):
                 n: int - Number of lists to return
 
         Return:
-                list(list(n)): A list of lists of integersrepresenting the Pascal’s
-                triangle of n
+                list(list(n)): A list of lists of integersrepresenting
+                the Pascal’s triangle of n
     """
     ret = []
     if n <= 0:
