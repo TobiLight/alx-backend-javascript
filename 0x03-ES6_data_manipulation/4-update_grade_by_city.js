@@ -6,7 +6,7 @@ function updateStudentGradeByCity(studentList, city, newGrades) {
       return {
         ...student,
         grade: matchingGrades ? matchingGrades.grade : 'N/A',
-      }
+      };
     });
 }
 
