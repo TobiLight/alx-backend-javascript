@@ -20,15 +20,15 @@ export function printTeacher(firstName: string, lastName: string): string {
 }
 
 export interface StudentClassConstructor {
-	(firstName: string, lastName: string): StudentClassFunctions;
+	(firstName: string, lastName: string): IStudentClass;
 }
 
-export interface StudentClassFunctions {
+export interface IStudentClass {
 	workOnHomework(): string;
 	displayName(): string;
 }
 
-export class StudentClass implements StudentClassFunctions {
+export class StudentClass implements IStudentClass {
 	private _firstName!: string;
 	private _lastName!: string;
 
