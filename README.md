@@ -5,3 +5,4 @@ This repository contains programs written for the specialization track at the al
 - **[0x01. ES6 Promise](./0x01-ES6_promise/)** - ES6 Promise
 - **[0x02. ES6 Classes](./0x02-ES6_classes/)** - ES6 Classes
 - **[0x03. ES6 Data Manipulation](./0x03-ES6_data_manipulation/)** - ES6 Data Manipulation
+- **[0x04. TypeScript](./0x04-TypeScript/)** - TypeScript
