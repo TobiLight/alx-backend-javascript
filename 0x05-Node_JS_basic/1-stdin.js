@@ -3,17 +3,12 @@
  * Author: Oluwatobiloba Light
  */
 
-const readline = require('readline');
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+process.stdin.on('data', answer => {
+  process.stdout.write(`Your name is: ${answer}`);
 });
 
-// console.log("Welcome to Holberton School, what is your name?\n");
-
-rl.question('Welcome to Holberton School, what is your name?\n', answer => {
-  console.log(`Your name is: ${answer}`);
-  console.log('This important software is now closing');
-  rl.close();
+process.stdin.on('end', () => {
+  process.stdout.write('This important software is now closing\n');
 });
