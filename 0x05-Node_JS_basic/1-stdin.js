@@ -9,6 +9,6 @@ process.stdin.on('data', answer => {
   process.stdout.write(`Your name is: ${answer}`);
 });
 
-process.stdin.on('end', () => {
+process.stdin.on('close', () => {
   process.stdout.write('This important software is now closing\n');
 });
