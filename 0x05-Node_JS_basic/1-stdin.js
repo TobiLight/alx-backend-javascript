@@ -10,20 +10,11 @@ const readline = rl.createInterface({
   output: process.stdout
 });
 
-const displayWelcoeMessage = () => {
-  return 'Welcome to Holberton School, what is your name?\n';
-};
-
 const askName = () => {
-  readline.question(displayWelcoeMessage(), answer => {
+  readline.question('Welcome to Holberton School, what is your name?\n', answer => {
     console.log(`Your name is ${answer}`);
-    endProgram();
+    readline.close();
   });
-};
-
-const endProgram = () => {
-  console.log('This important software is now closing');
-  readline.close();
 };
 
 askName();
