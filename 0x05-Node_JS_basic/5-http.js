@@ -1,6 +1,8 @@
 const http = require('http');
 const fs = require('fs');
 
+const DB_FILE = process.argv.length > 2 ? process.argv[2] : '';
+
 /**
  * Counts the number of students and students in each field from a CSV file.
  *
@@ -79,8 +81,8 @@ const app = http.createServer(async (req, res) => {
   if (req.url === '/students') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     try {
-      const data = await countStudents(process.argv[2]);
-      res.end(`The is the list of our students\n${data}`);
+      const data = await countStudents(DB_FILE);
+      res.end(`This is the list of our students\n${data}`);
     } catch (err) {
       res.end(err.message);
     }
