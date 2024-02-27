@@ -32,7 +32,7 @@ const countStudents = (filePath) => {
       const field = lines[i].split(',');
       for (let j = 0; j < headers.length; j++) {
         if (j === 3) {
-          if (fields(field[j])) {
+			if (fields.hasOwnProperty(field[j])) {
             fields[field[j]].count++;
             fields[field[j]].names.push(field[0]);
           } else {
