@@ -32,7 +32,7 @@ const countStudents = (filePath) => {
       const field = lines[i].split(',');
       for (let j = 0; j < headers.length; j++) {
         if (j === 3) {
-          if (fields.hasOwnProperty(field[j])) {
+          if (fields(field[j])) {
             fields[field[j]].count++;
             fields[field[j]].names.push(field[0]);
           } else {
@@ -45,7 +45,7 @@ const countStudents = (filePath) => {
     }
 
     for (const field in fields) {
-      console.log(`Number of students in ${field}: ${fields[field].count}. List: ${fields[field].names.join(', ').trim()}`);
+      console.log(`Number of students in ${field}: ${fields[field].count}. List: ${fields[field].names.join(', ')}`);
     }
   } catch (err) {
     throw Error('Cannot load the database');
