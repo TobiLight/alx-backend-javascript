@@ -82,7 +82,7 @@ const app = http.createServer(async (req, res) => {
       const data = await countStudents(process.argv[2]);
       res.end(`The is the list of our students\n${data}`);
     } catch (err) {
-      console.log(err);
+      res.end(err.message);
     }
   }
 });
