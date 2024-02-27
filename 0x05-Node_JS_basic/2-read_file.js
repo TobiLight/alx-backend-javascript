@@ -45,7 +45,7 @@ const countStudents = (filePath) => {
     }
 
     for (const field in fields) {
-      console.log(`Number of students in ${field}: ${fields[field].count}. List: ${fields[field].names.join(', ')}`);
+		console.log(`Number of students in ${field}: ${fields[field].count}. List: ${fields[field].names.join(', ').trim()}`);
     }
   } catch (err) {
     throw Error('Cannot load the database');
