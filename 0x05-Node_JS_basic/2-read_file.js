@@ -20,9 +20,6 @@ const countStudents = (filePath) => {
   try {
     const data = fs.readFileSync(filePath, { encoding: 'utf-8' });
     const list = data.toString().trim().split('\n');
-    const numOfStudents = list.length - 1;
-
-    console.log(`Number of students: ${numOfStudents}`);
 
     const studentGroups = {};
     const dbFieldNames = list[0].split(',');
@@ -40,6 +37,10 @@ const countStudents = (filePath) => {
       const entries = studentInfo.map((student, idx) => [student, studentPropVal[idx]]);
       studentGroups[field].push(Object.fromEntries(entries));
     }
+
+    const totalStudents = Object.values(studentGroups).reduce((pre, curr) => (pre || []).length + curr.length);
+
+    console.log(`Number of students: ${totalStudents}`);
 
     for (const [key, value] of Object.entries(studentGroups)) {
       const names = value.map(student => student.firstname).join(', ');
