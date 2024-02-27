@@ -1,17 +1,5 @@
 const fs = require('fs');
 
-/**
- * Counts the number of students and students in each field from a CSV file.
- *
- * This function asynchronously reads the provided CSV file and processes the data
- * to count the total number of students and the number of students in each field.
- * It also generates a list of unique values for each field.
- *
- * @param {string} filePath - The path to the CSV file containing student data.
- *
- * @throws {Error} - If the file cannot be read or is empty.
- * @author - Oluwatobiloba Light
- */
 const countStudents = (filePath) => new Promise((resolve, reject) => {
   fs.readFile(filePath, 'utf-8', (err, data) => {
     if (err) {
