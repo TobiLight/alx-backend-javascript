@@ -1,13 +1,9 @@
-/**
- * File: 2-read_file.js
- * Author: Oluwatobiloba Light
- */
 
 const fs = require('fs');
 
 const countStudents = (filePath) => {
   try {
-    const data = fs.readFileSync(filePath, { encoding: 'utf-8' });
+    const data = fs.readFileSync(filePath, 'utf-8');
     const list = data.toString().trim().split('\n');
 
     const studentGroups = {};
