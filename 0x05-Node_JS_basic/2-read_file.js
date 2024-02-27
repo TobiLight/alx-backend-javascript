@@ -21,8 +21,8 @@ const countStudents = (filePath) => {
     const dbFieldNames = list[0].split(',');
     const studentInfo = dbFieldNames.slice(0, dbFieldNames.length - 1);
 
-    for (let i = 1; i < list.length; i++) {
-      const studentRecords = list[i].split(',');
+    for (let info of list.slice(1)) {
+      const studentRecords = info.split(',');
       const studentPropVal = studentRecords.slice(0, studentRecords.length - 1);
       const field = studentRecords[studentRecords.length - 1];
 
