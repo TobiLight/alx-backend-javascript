@@ -24,8 +24,8 @@ const countStudents = (filePath) => new Promise((resolve, reject) => {
       const dbFieldNames = list[0].split(',');
       const studentInfo = dbFieldNames.slice(0, dbFieldNames.length - 1);
 
-      for (let i = 1; i < list.length; i++) {
-        const studentRecords = list[i].split(',');
+      for (const info of list.slice(1)) {
+        const studentRecords = info.split(',');
         const studentPropVal = studentRecords.slice(0, studentRecords.length - 1);
         const field = studentRecords[studentRecords.length - 1];
 
@@ -37,12 +37,12 @@ const countStudents = (filePath) => new Promise((resolve, reject) => {
         studentGroups[field].push(Object.fromEntries(entries));
       }
 
-      const totalStudents = Object.values(studentGroups).reduce((pre, curr) => (pre || []).length + curr.length);
+      const totalStudents = list.length - 1;
 
       console.log(`Number of students: ${totalStudents}`);
 
       for (const [key, value] of Object.entries(studentGroups)) {
-        const names = value.map(student => student.firstname).join(', ');
+        const names = value.map((student) => student.firstname).join(', ');
         console.log(`Number of students in ${key}: ${value.length}. List: ${names}`);
       }
       resolve();
