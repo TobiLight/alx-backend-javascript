@@ -19,32 +19,31 @@ const fs = require('fs');
 const countStudents = (filePath) => {
   try {
     const data = fs.readFileSync(filePath, { encoding: 'utf-8' });
-    console.log(data);
-    const list = data.split('\n');
-    const lines = list.filter(line => line.trim());
-    const numOfStudents = lines.length - 1;
+    const list = data.toString().trim().split('\n');
+    const numOfStudents = list.length - 1;
 
     console.log(`Number of students: ${numOfStudents}`);
 
-    const fields = {};
-    const headers = lines[0].split(',');
+    const studentGroups = {};
+    const dbFieldNames = list[0].split(',');
+    const studentInfo = dbFieldNames.slice(0, dbFieldNames.length - 1);
 
-    for (let i = 1; i < lines.length; i++) {
-      const field = lines[i].split(',');
-      for (let j = 0; j < headers.length; j++) {
-        if (j === 3) {
-          if (Object.keys(fields).includes(field[j])) {
-            fields[field[j]].count++;
-            fields[field[j]].names.push(field[0]);
-          } else {
-            fields[field[j]] = { count: 1, names: [field[0]] };
-          }
-        }
+    for (let i = 1; i < list.length; i++) {
+      const studentRecords = list[i].split(',');
+      const studentPropVal = studentRecords.slice(0, studentRecords.length - 1);
+      const field = studentRecords[studentRecords.length - 1];
+
+      if (!Object.keys(studentGroups).includes(field)) {
+        studentGroups[field] = [];
       }
+
+      const entries = studentInfo.map((student, idx) => [student, studentPropVal[idx]]);
+      studentGroups[field].push(Object.fromEntries(entries));
     }
 
-    for (const field in fields) {
-      console.log(`Number of students in ${field}: ${fields[field].count}. List: ${fields[field].names.join(', ')}`);
+    for (const [key, value] of Object.entries(studentGroups)) {
+      const names = value.map(student => student.firstname).join(', ');
+      console.log(`Number of students in ${key}: ${value.length}. List: ${names}`);
     }
   } catch (err) {
     throw Error('Cannot load the database');
