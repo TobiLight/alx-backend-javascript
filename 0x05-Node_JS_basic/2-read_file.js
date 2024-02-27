@@ -18,7 +18,8 @@ const fs = require('fs');
  */
 const countStudents = (filePath) => {
   try {
-    const data = fs.readFileSync(filePath, 'utf-8');
+    const data = fs.readFileSync(filePath, { encoding: 'utf-8' });
+    console.log(data);
     const list = data.split('\n');
     const lines = list.filter(line => line.trim());
     const numOfStudents = lines.length - 1;
