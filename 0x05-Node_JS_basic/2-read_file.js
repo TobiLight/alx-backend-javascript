@@ -7,7 +7,7 @@ const fs = require('fs');
  * to count the total number of students and the number of students in each field.
  * It also generates a list of unique values for each field.
  *
- * @param {string} filePath - The path to the CSV file containing student data.
+ * @param {String} dataPath - The path to the CSV file containing student data.
  *
  * @throws {Error} - If the file cannot be read or is empty.
  * @author - Oluwatobiloba Light
