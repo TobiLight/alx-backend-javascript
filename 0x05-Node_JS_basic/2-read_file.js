@@ -17,7 +17,7 @@ const fs = require('fs');
  * @throws {Error} - If the file cannot be read or is empty.
  */
 const countStudents = (filePath) => {
-  if (!fs.readFileSync(filePath, 'utf-8')) {
+  if (!fs.existsSync(filePath)) {
     throw Error('Cannot load the database');
   }
 
