@@ -21,7 +21,7 @@ const countStudents = (filePath) => {
     const data = fs.readFileSync(filePath, { encoding: 'utf-8' });
     const list = data.split('\n');
     const lines = list.filter(line => line.trim());
-    const numOfStudents = lines.length - 1; // excluding the header
+    const numOfStudents = lines.length - 1;
 
     console.log(`Number of students: ${numOfStudents}`);
 
