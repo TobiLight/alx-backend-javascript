@@ -15,7 +15,7 @@ const fs = require('fs');
 const countStudents = (filePath) => {
   try {
     const data = fs.readFileSync(filePath, 'utf-8');
-    const list = data.toString().trim().split('\n');
+    const list = data.toString('utf-8').trim().split('\n');
 
     const studentGroups = {};
     const dbFieldNames = list[0].split(',');
