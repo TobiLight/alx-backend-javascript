@@ -43,6 +43,14 @@ class StudentsController {
     }
   }
 
+  /**
+   * Static method that handles requests to retrieve all student data by major.
+   * Reads student data from the database, formats it, and returns it in the response.
+   * @param { http.IncomingMessage } request - The HTTP request object.
+   * @param { http.ServerResponse } response - The HTTP response object.
+   * @returns { Promise < void>} - A promise that resolves when the response
+   * is sent, or rejects with an error.
+   */
   static async getAllStudentsByMajor(request, response) {
     const MAJORS = ['CS', 'SWE'];
 

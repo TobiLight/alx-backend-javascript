@@ -10,8 +10,8 @@ class AppController {
    * This method responds to requests on the "/" path by sending a 200 status code
    * and the message "Hello Holberton School!".
    *
-   * @param {http.IncomingMessage} req - The HTTP request object.
-   * @param {http.ServerResponse} res - The HTTP response object.
+   * @param {http.IncomingMessage} reques - The HTTP request object.
+   * @param {http.ServerResponse} response - The HTTP response object.
    * @returns Text along with a 200 status code.
    */
   static getHomepage(request, response) {
