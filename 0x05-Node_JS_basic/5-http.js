@@ -79,8 +79,8 @@ const app = http.createServer((req, res) => {
   }
 
   if (req.url === '/students') {
+    res.write('This is the list of our students\n');
     countStudents(DB_FILE).then((output) => {
-      res.write('This is the list of our students\n');
       res.end(output);
     }).catch((e) => {
       res.statusCode = 404;
