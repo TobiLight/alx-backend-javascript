@@ -73,13 +73,12 @@ const countStudents = (filePath) => new Promise((resolve, reject) => {
  * @module 5-http
  */
 const app = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
   if (req.url === '/') {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Hello Holberton School!');
   }
 
   if (req.url === '/students') {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
     countStudents(DB_FILE).then((output) => {
       res.write('This is the list of our students\n');
       res.end(output);
