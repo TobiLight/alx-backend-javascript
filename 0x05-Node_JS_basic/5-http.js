@@ -72,7 +72,7 @@ const countStudents = (filePath) => new Promise((resolve, reject) => {
  *
  * @module 5-http
  */
-const app = http.createServer(async (req, res) => {
+const app = http.createServer((req, res) => {
   if (req.url === '/') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Hello Holberton School!');
@@ -80,14 +80,21 @@ const app = http.createServer(async (req, res) => {
 
   if (req.url === '/students') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    try {
-      const data = await countStudents(DB_FILE);
+    countStudents(DB_FILE).then((output) => {
       res.write('This is the list of our students\n');
-      res.end(`${data}`);
-    } catch (err) {
+      res.end(output);
+    }).catch((e) => {
       res.statusCode = 404;
-      res.end(err.message);
-    }
+      res.end(e.message);
+    });
+    // try {
+    //   const data = await countStudents(DB_FILE);
+    //   res.write('This is the list of our students\n');
+    //   res.end(`${data}`);
+    // } catch (err) {
+    //   res.statusCode = 404;
+    //   res.end(err.message);
+    // }
   }
 });
 
