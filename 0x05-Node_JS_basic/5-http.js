@@ -82,8 +82,10 @@ const app = http.createServer(async (req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     try {
       const data = await countStudents(DB_FILE);
-      res.end(`This is the list of our students\n${data}`);
+      res.write('This is the list of our students\n');
+      res.end(`${data}`);
     } catch (err) {
+      res.statusCode = 404;
       res.end(err.message);
     }
   }
