@@ -21,7 +21,7 @@ const countStudents = (filePath) => new Promise((resolve, reject) => {
       reject(new Error('Cannot load the database'));
     }
     if (data) {
-      const list = data.toString('utf-8').trim().split('\n');
+      const list = data.toString().trim().split('\n');
 
       const studentGroups = {};
       const dbFieldNames = list[0].split(',');
@@ -87,17 +87,9 @@ const app = http.createServer((req, res) => {
       res.statusCode = 404;
       res.end(e.message);
     });
-    // try {
-    //   const data = await countStudents(DB_FILE);
-    //   res.write('This is the list of our students\n');
-    //   res.end(`${data}`);
-    // } catch (err) {
-    //   res.statusCode = 404;
-    //   res.end(err.message);
-    // }
   }
 });
 
-app.listen(1245);
+app.listen(1245, '127.0.0.1');
 
 module.exports = app;
