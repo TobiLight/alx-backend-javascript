@@ -8,7 +8,7 @@
  * @returns {Numbers|String} - The sum of a and b
  */
 
-export const calculateNumber = (type, a, b) => {
+const calculateNumber = (type, a, b) => {
   const roundedA = Math.round(a);
   const roundedB = Math.round(b);
 
@@ -24,9 +24,8 @@ export const calculateNumber = (type, a, b) => {
 
       return roundedA / roundedB;
     default:
-      return;
+      return 0;
   }
 };
 
-// export default calculateNumber;
-// module.exports = calculateNumber;
+module.exports = calculateNumber;
