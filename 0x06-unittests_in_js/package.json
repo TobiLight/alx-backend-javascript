@@ -1,0 +1,15 @@
+{
+  "name": "alx-backend-javascript",
+  "version": "1.0.0",
+  "description": "This repository contains programs written for the specialization track at the alx-SoftwareEngineering program facilitated by Holberton School.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.3.0"
+  }
+}
