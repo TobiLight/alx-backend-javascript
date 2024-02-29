@@ -24,7 +24,7 @@ export const calculateNumber = (type, a, b) => {
 
       return roundedA / roundedB;
     default:
-      return;
+      return 'Error';
   }
 };
 
