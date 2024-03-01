@@ -6,7 +6,7 @@ const Utils = require('./utils');
 const sinon = require('sinon')
 
 /**
- * @module 3-payment.test
+ * @module 4-payment.test
  * @description This module contains test cases for the sendPaymentRequestToApi function.
  */
 describe('sendPaymentRequestToApi', () => {
