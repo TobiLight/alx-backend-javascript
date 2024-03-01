@@ -15,8 +15,5 @@ describe('getPaymentTokenFromAPI', () => {
 				expect(response).to.deep.equal(response, { data: 'Successful response from the API' });
 				done();
 			})
-			.catch((error) => {
-				done(error);
-			});
 	});
 });
