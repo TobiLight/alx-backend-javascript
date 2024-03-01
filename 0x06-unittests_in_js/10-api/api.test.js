@@ -39,9 +39,9 @@ describe('API endpoints', () => {
 
   describe('/available_payments', () => {
     it('should return the correct payment methods object', (done) => {
-      request('http://localhost:7865/available_payments', (error, response, body) => {
-        expect(response.statusCode).to.equal(200);
-        expect(JSON.parse(body)).to.deep.equal({
+      request('http://localhost:7865/available_payments', (_error, response, body) => {
+        expect(response.statusCode).to.be.equal(200);
+        expect(JSON.parse(body)).to.be.deep.equal({
           payment_methods: {
             credit_cards: true,
             paypal: false,
