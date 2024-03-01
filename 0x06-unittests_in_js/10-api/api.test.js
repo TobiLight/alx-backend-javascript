@@ -55,8 +55,8 @@ describe('API endpoints', () => {
   describe('/login', () => {
     it('should return a welcome message with the username', (done) => {
       const username = 'testUser';
-      request.post('http://localhost:7865/login', { json: { userName: username } }, (_err, res, body) => {
-        expect(res.statusCode).to.be.equal(200);
+      request.post('http://localhost:7865/login', { json: { userName: username } }, (_error, response, body) => {
+        expect(response.statusCode).to.be.equal(200);
         expect(body).to.be.equal('Welcome testUser');
         done();
       });
