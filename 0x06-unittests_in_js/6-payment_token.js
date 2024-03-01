@@ -6,7 +6,7 @@
  * @param {boolean} success - Indicates whether to simulate a successful API response.
  * @returns {Promise<{data: string}>} A Promise that resolves with a success response object or remains pending for unsuccessful cases.
  */
-const getPaymentTokenFromAPI = (success) => new Promise((resolve, reject) => {
+const getPaymentTokenFromAPI = (success) => new Promise((resolve, _reject) => {
 	if (success) {
 		resolve({ data: 'Successful response from the API' });
 	}
