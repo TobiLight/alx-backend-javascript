@@ -1,7 +1,6 @@
 // Author: Oluwatobiloba Light
 
 const { expect } = require('chai');
-const sinon = require('sinon')
 const getPaymentTokenFromAPI = require('./6-payment_token');
 
 /**
