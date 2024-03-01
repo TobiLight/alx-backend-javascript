@@ -30,7 +30,8 @@ app.post('/login', (req, res) => {
 	if (req.body) {
 		username = req.body.userName;
 	}
-	res.status(200).send(`Welcome ${username}`);
+
+	res.send(`Welcome ${username}`);
 });
 
 app.listen(port, () => {
